@@ -319,6 +319,41 @@
         .scroll-arrow::after { content:''; position:absolute; top:6px; left:50%; transform:translateX(-50%); width:4px; height:4px; background:var(--color-cyan); border-radius:50%; animation:scrollDot 1.8s ease-in-out infinite; }
         @keyframes scrollDot { 0%{top:6px;opacity:1} 80%{top:16px;opacity:0} 100%{top:6px;opacity:0} }
 
+        /* ===================== TRUSTED CLIENT ======================== */
+        .trusted-client-strip {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 40px 5% 20px; max-width: 1400px; margin: 0 auto;
+        }
+        .trusted-label {
+            font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px;
+            color: var(--text-muted); margin-bottom: 1.2rem;
+        }
+        .trusted-client-link {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 1rem 3rem; background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border);
+            border-radius: 50px; text-decoration: none; transition: all 0.4s var(--ease-luxury);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            position: relative; overflow: hidden;
+        }
+        .trusted-client-link::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(0,229,255,0.1), transparent);
+            opacity: 0; transition: opacity 0.4s;
+        }
+        .trusted-client-link:hover::before { opacity: 1; }
+        .trusted-name {
+            font-size: clamp(1.1rem, 3vw, 1.4rem); font-weight: 700; color: #fff;
+            letter-spacing: 2px; position: relative; z-index: 1; transition: color 0.4s;
+        }
+        .trusted-client-link:hover {
+            border-color: rgba(0,229,255,0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(0,229,255,0.15);
+        }
+        .trusted-client-link:hover .trusted-name {
+            color: var(--color-cyan);
+        }
+
         /* ===================== MARQUEE STRIP ======================== */
         .marquee-strip { width: 100%; overflow: hidden; background: rgba(0,229,255,0.05); border-top: 1px solid rgba(0,229,255,0.14); border-bottom: 1px solid rgba(0,229,255,0.14); padding: 1rem 0; max-width: 100%; margin: 0; }
         .marquee-track { display: flex; gap: 3rem; animation: marqueeScroll 28s linear infinite; white-space: nowrap; }
@@ -649,6 +684,14 @@
             <div class="scroll-arrow"></div>
         </div>
     </section>
+
+    <!-- Trusted By -->
+    <div class="trusted-client-strip reveal">
+        <span class="trusted-label">Our Trustable Client</span>
+        <a href="https://alvicgym.in" target="_blank" rel="noopener noreferrer" class="trusted-client-link">
+            <span class="trusted-name logo-font">ALVIC GYM</span>
+        </a>
+    </div>
 
     <!-- Marquee -->
     <div class="marquee-strip">
