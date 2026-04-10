@@ -133,16 +133,17 @@
 
         /* FIX: Subtitle starts visible immediately */
         .wrapper-logo .subtitle {
+            --final-ls: 0.45em;
             margin-top: 0.1em;
             font-family: 'Inter', sans-serif;
-            font-size: 0.15em;
-            letter-spacing: 0.85em;
+            font-size: 0.22em;
+            letter-spacing: var(--final-ls);
             color: #b035a5;
-            margin-left: 3.2em;
-            font-weight: 400;
+            margin-left: 2.2em;
+            font-weight: 500;
             opacity: 1; /* INSTANT visible */
             animation: subtitleReveal 1s cubic-bezier(0.16,1,0.3,1) 0.4s both;
-            will-change: transform, opacity;
+            will-change: transform, opacity, letter-spacing;
         }
 
         /* ===================== NAVBAR ======================== */
@@ -488,8 +489,8 @@
         }
         @keyframes drawPath { to{stroke-dashoffset:0} }
         @keyframes subtitleReveal {
-            0%   { opacity: 0; transform: translateY(4px); }
-            100% { opacity: 1; transform: translateY(0); }
+            0%   { opacity: 0; transform: translateY(4px); letter-spacing: calc(var(--final-ls, 0.45em) * 0.5); }
+            100% { opacity: 1; transform: translateY(0); letter-spacing: var(--final-ls, 0.45em); }
         }
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
@@ -543,12 +544,12 @@
         @media (max-width: 480px) {
             .nav-logo { font-size: 30px; }
             .nav-logo-center { max-width: calc(100% - 110px); }
-            .wrapper-logo .subtitle { letter-spacing: 0.3em; margin-left: 1.8em; font-size: 0.13em; }
+            .wrapper-logo .subtitle { --final-ls: 0.25em; margin-left: 1.2em; font-size: 0.18em; }
             .nav-logo .wrapper-logo { min-height: 42px; }
         }
         @media (max-width: 380px) {
             .nav-logo { font-size: 26px; }
-            .wrapper-logo .subtitle { letter-spacing: 0.2em; margin-left: 1.2em; font-size: 0.12em; }
+            .wrapper-logo .subtitle { --final-ls: 0.15em; margin-left: 0.8em; font-size: 0.16em; }
         }
 
         @media (prefers-reduced-motion: reduce) {
